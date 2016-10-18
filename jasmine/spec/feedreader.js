@@ -23,7 +23,7 @@ $(function() {
 
         it('has a Name', function() {
             for (var i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
+                expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name).not.toBe('');
             }
         });
@@ -69,9 +69,8 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it('Feed has atleast one entry', function(done) {
-            var entry = $('.feed .entry')[0];
-            expect($('entry').length).toBeGreaterThan(0);
+        it('Feed has atleast one entry', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
 
     });
