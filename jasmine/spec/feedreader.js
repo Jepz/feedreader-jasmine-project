@@ -76,21 +76,28 @@ $(function() {
 
      describe('New Feed Selection', function(){
 
+
+       /*
+       * Initial loaded setup
+       */
         var initFeed;
        beforeEach(function(done) {
+         loadFeed(0, function(){
+
+           initFeed = $('.feed').find('.entry-link').attr('href');
            loadFeed(1, function(){
-               initFeed = $('.feed').find('.entry-link').attr('href');
-               done();
+             done();
            });
+
+         });
        });
 
         it('Feed has been changed', function(done) {
-            loadFeed(0, function(){
-                var secondFeed = $('.feed').find('.entry-link').attr('href');
-                expect(secondFeed).not.toEqual(initFeed);
-                done();
-            });
-        });
 
+          var newFeed = $('.feed').find('.entry-link').attr('href');
+          expect(newFeed).not.toEqual(initFeed);
+          done();
+
+        });
      });
 }());
