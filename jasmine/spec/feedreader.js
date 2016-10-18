@@ -69,7 +69,6 @@ $(function() {
 
        it('Feed has atleast one entry', function(done) {
            expect($('.entry').length).toBeGreaterThan(0);
-           done();
        });
 
      });
@@ -92,11 +91,10 @@ $(function() {
          });
        });
 
-        it('Feed has been changed', function(done) {
+        it('Feed has been changed', function() {
 
           var newFeed = $('.feed').find('.entry-link').attr('href');
           expect(newFeed).not.toEqual(initFeed);
-          done();
 
         });
      });
